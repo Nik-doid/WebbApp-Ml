@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ml_model import analyze_sentiment
+from .ml_model import analyze_sentiment
 
 def home(request):
     if request.method == "POST":
