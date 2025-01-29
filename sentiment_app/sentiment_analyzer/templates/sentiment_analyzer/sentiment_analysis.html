@@ -20,5 +20,8 @@
         <p><strong>Sentiment:</strong> {{ sentiment }}</p>
         <p><strong>Confidence:</strong> {{ confidence|floatformat:2 }}</p>
     {% endif %}
+
+    <br>
+    <a href="{% url 'image_classification' %}">Go to Image Classification</a>
 </body>
 </html>

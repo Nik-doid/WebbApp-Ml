@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+</head>
+<body>
+    <h1>Image Classification</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*">
+        <br><br>
+        <button type="submit">Classify Image</button>
+    </form>
+
+    {% if image_results %}
+        <h2>Result:</h2>
+        <p><strong>Image:</strong></p>
+        <img src="{{ image_path }}" alt="Uploaded Image" style="max-width: 300px;">
+        <ul>
+            {% for result in image_results %}
+                <li>{{ result.1 }} ({{ result.2|floatformat:2 }})</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <br>
+    <a href="{% url 'sentiment_analysis' %}">Go to Sentiment Analysis</a>
+</body>
+</html>
