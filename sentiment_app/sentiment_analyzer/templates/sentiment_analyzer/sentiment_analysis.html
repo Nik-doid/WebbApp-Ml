@@ -4,6 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        textarea {
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            resize: vertical;
+            margin-bottom: 20px;
+            max-width: 100%;
+        }
+
+        textarea::placeholder {
+            color: #999;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result-section {
+            margin-top: 30px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .result-section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .result-section p {
+            font-size: 1em;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .result-section p strong {
+            color: #333;
+        }
+
+        a {
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>Sentiment Analysis</h1>
@@ -15,10 +112,12 @@
     </form>
 
     {% if sentiment %}
-        <h2>Result:</h2>
-        <p><strong>Text:</strong> {{ text }}</p>
-        <p><strong>Sentiment:</strong> {{ sentiment }}</p>
-        <p><strong>Confidence:</strong> {{ confidence|floatformat:2 }}</p>
+        <div class="result-section">
+            <h2>Result:</h2>
+            <p><strong>Text:</strong> {{ text }}</p>
+            <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+            <p><strong>Confidence:</strong> {{ confidence|floatformat:2 }}</p>
+        </div>
     {% endif %}
 
     <br>
