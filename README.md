@@ -50,7 +50,7 @@ Image Classification:
 
 The user uploads an image.
 
-The image is processed by a pre-trained MobileNet model from TensorFlow/Keras.
+The image is processed by a pre-trained MobileNet model from TensorFlow.
 
 The top 3 predicted categories and their confidence scores are displayed.
 
